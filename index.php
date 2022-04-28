@@ -12,9 +12,15 @@
 
     <div class="container">
         <div class="row">
-            <nav class="col-md-3 mt-3">
+            <nav class="col-md-3 ">
                 <a href="index.php" class="btn btn-outline-secondary w-100" role="button">Home</a>
             </nav>
+
+            <section class="col-9">
+                <a href="index.php" class="btn btn-primary" role="button">Ajouter des données</a>
+            
+
+            </section>
         </div>
 
     </div>
