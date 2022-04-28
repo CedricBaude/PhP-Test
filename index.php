@@ -18,7 +18,6 @@
 
             <section class="col-9">
                 <a href="index.php" class="btn btn-primary" role="button">Ajouter des données</a>
-            
 
             </section>
         </div>
