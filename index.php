@@ -8,9 +8,13 @@
     <?php include_once './includes/header.inc.html' ; ?>
 
     <div class="container">
-        
+
     </div>
 
+
+
+
+    <?php include_once './includes/footer.inc.html' ; ?>
 </body>
 </html>
 
