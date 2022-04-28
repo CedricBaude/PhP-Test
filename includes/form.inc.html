@@ -4,27 +4,20 @@
 <form>
     <div class="form-group">
         <div class="form-floating mb-3">
-          <input type="text" class="form-control" id="floatingInput" placeholder="Prenom">
-          <label for="floatingInput">Prénom</label>
+          <input type="text" class="form-control" id="prenom" placeholder="Prenom" required>
+          <label for="prenom">Prénom</label>
         </div>
     </div>
     <div class="form-group">
         <div class="form-floating mb-3">
-          <input type="text" class="form-control" id="floatingInput" placeholder="Nom">
-          <label for="floatingInput">Nom</label>
+          <input type="text" class="form-control" id="nom" placeholder="Nom"required>
+          <label for="nom">Nom</label>
         </div>
     </div>
     
-    <div class="form-group">
-        <label for="exampleSelect1" class="form-label mt-4">Age (18 à 70 ans)</label>
-        <select class="form-select" id="exampleSelect1">
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
-        </select>
-      </div>
-
+    <div class="form-group">      
+      <label for="age">Age (18 à 70 ans)</label>
+      <input type="number" min="18" max="70" class="form-control" id="age" placeholder="Renseignez votre age" required>
+    </div>
     <button type="submit" class="btn btn-primary">Enregistrer les données</button>
   </form>
