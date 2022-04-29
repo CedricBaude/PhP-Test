@@ -23,6 +23,7 @@ if(isset($_SESSION['table'])) $table = $_SESSION['table'];
                 <?php if(isset($_GET['add'])) {
                         include './includes/form.inc.html';
                     }
+
                     elseif(isset($_POST['enregistrer'])) {
                         $prenom = $_POST['user-prenom'];
                         $nom = $_POST['user-nom'];
@@ -40,24 +41,35 @@ if(isset($_SESSION['table'])) $table = $_SESSION['table'];
                         $_SESSION["table"] = $table; 
                         echo '<p class="alert-success text-center py-3"> Données sauvegardées !</p>';
                     
-                    } elseif (isset($_GET["debugging"])) {
+                    }
+
+                    elseif (isset($_GET["debugging"])) {
                         echo '<h2>Débogage</h2>';
                         echo "<p>===> Lecture du tableau à l'aide de la fonction print_r()</p>";
                         print "<pre>";
                         print_r($table);
                         print "</pre>";
+                    } 
+
+                    elseif (isset($_GET['concatenation'])) {
+
+                    }
                     
-                        
+                    elseif (isset($_GET['boule'])) {
+
+                    }                       
                     
-                    
-                    } elseif (isset($_GET['del'])) {
+                    elseif (isset($_GET['function'])) {
+
+                    }
+
+                    elseif (isset($_GET['del'])) {
                         session_destroy(); {
                             echo '<p class="alert-success text-center py-3"> Données suprimées !</p>';
                         }
                     }
 
-
-
+                    
                     echo '<a role="button" class=" btn btn-primary" href="index.php?add">Ajouter des données</a>';
                     
                 
