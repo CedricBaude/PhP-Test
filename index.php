@@ -55,7 +55,7 @@ if(isset($_SESSION['table'])) $table = $_SESSION['table'];
 
                     }
                     
-                    elseif (isset($_GET['boule'])) {
+                    elseif (isset($_GET['boucle'])) {
 
                     }                       
                     
