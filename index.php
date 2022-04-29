@@ -47,14 +47,17 @@ if(isset($_SESSION['table'])) $table = $_SESSION['table'];
                         print_r($table);
                         print "</pre>";
                     
+                        
+                    
                     
                     } elseif (isset($_GET['del'])) {
-                        unset ($_SESSION['table']);
-                        if (empty($_SESSION['table'])) {
-                            echo '<p class="alert-success text-center py-3"> Données suprimées</p>';
+                        session_destroy(); {
+                            echo '<p class="alert-success text-center py-3"> Données suprimées !</p>';
                         }
                     }
-                    
+
+
+
                     echo '<a role="button" class=" btn btn-primary" href="index.php?add">Ajouter des données</a>';
                     
                 
