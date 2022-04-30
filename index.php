@@ -44,7 +44,7 @@ if(isset($_SESSION['table'])) $table = $_SESSION['table'];
                     }
 
                     elseif (isset($_GET["debugging"])) {
-                        echo '<h2>Débogage</h2>';
+                        echo "<h2 class='text-center'>Débogage</h2><br>";
                         echo "<p>===> Lecture du tableau à l'aide de la fonction print_r()</p>";
                         print "<pre>";
                         print_r($table);
@@ -52,10 +52,37 @@ if(isset($_SESSION['table'])) $table = $_SESSION['table'];
                     } 
 
                     elseif (isset($_GET['concatenation'])) {
+                        echo "<h2 class='text-center'>Concaténation</h2><br>";
+                        
+                        echo "<h3 class='fs-5'>===> Construction d'une phrase avec le contenu du tableau :</h3>";
+                        $civilité = ($table['civility'] == "woman") ? "Mme " :  "Mr "; 
+                        echo "<p> ". $civilité . $table["first_name"] . " " . $table["last_name"] . " <br>J'ai " . $table["age"] . " ans et je mesure " . $table['size'] . "m.</p><br><br>";
 
+                        
+                        echo "<h3 class='fs-5'>===> Construction d'une phrase après MAJ du tableau :</h3>"; 
+                        $table['first_name'] = ucfirst ($table['first_name']);
+                        $table['last_name'] = strtoupper($table['last_name']);
+                        $civilité = ($table['civility'] == "woman") ? "Mme " :  "Mr ";                               
+                        echo "<p> ". $civilité . $table["first_name"] . " " . $table["last_name"] . " <br>J'ai " . $table["age"] . " ans et je mesure " . $table['size'] . "m.</p><br><br>";
+                        
+                        echo "<h3 class='fs-5'>===> Affichage d'une virgule à la place du point pour la taille :</h3>";
+                        $table['size'] = str_replace('.' , ',', $table['size']);
+                        $table['first_name'] = ucfirst ($table['first_name']);
+                        $table['last_name'] = strtoupper($table['last_name']);
+                        $civilité = ($table['civility'] == "woman") ? "Mme " :  "Mr ";                               
+                        echo "<p> ". $civilité . $table["first_name"] . " " . $table["last_name"] . " <br>J'ai " . $table["age"] . " ans et je mesure " . $table['size'] . "m.</p><br><br>";
+                    
                     }
                     
-                    elseif (isset($_GET['boucle'])) {
+                    elseif (isset($_GET['loop'])) {
+                        echo "<h2 class='text-center'>Boucle</h2><br>";
+                        echo "<p>===> Lecture du tableau à l'aide d'une boucle foreach</p><br>";
+                        $table = $_SESSION['table'];
+                        $i = 0;
+                            foreach ($table as $x => $value) {
+                                    echo '<div>à la ligne n°' . $i . ' correspond la clé "' . $x . '" et contient "' . $value . '"</div>';
+                                    $i++;
+                                }
 
                     }                       
                     
@@ -65,7 +92,7 @@ if(isset($_SESSION['table'])) $table = $_SESSION['table'];
 
                     elseif (isset($_GET['del'])) {
                         session_destroy(); {
-                            echo '<p class="alert-success text-center py-3"> Données suprimées !</p>';
+                            echo '<p class="alert-success text-center py-3"> Données supprimées !</p>';
                         }
                     }
 
