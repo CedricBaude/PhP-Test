@@ -23,9 +23,7 @@ if(isset($_SESSION['table'])) $table = $_SESSION['table'];
                 <?php if(isset($_GET['add'])) {
                         include './includes/form.inc.html';
                     }
-                    elseif(isset($_GET['add_more'])) {
-                        include './includes/form2.inc.php';
-                    }
+                    
 
                     elseif(isset($_POST['enregistrer'])) {
                         $prenom = htmlspecialchars($_POST['user-prenom']);
@@ -39,19 +37,63 @@ if(isset($_SESSION['table'])) $table = $_SESSION['table'];
                             "age" => $age,
                             "size" => $taille,
                             "civility" => $sex,
+                            
                         );
 
                         $_SESSION["table"] = $table; 
                         echo '<p class="alert-success text-center py-3"> Données sauvegardées !</p>';
                     
-                    } elseif (isset($table)) {
+                    } elseif(isset($_GET['add_more'])) {
+                        include './includes/form2.inc.php';
+                    }
+                    elseif(isset($_POST['enregistrer2'])) {
+                        $prenom = htmlspecialchars($_POST['user-prenom']);
+                        $nom = htmlspecialchars($_POST['user-nom']);
+                        $age = htmlspecialchars($_POST['user-age']);
+                        $taille = htmlspecialchars($_POST['user-taille']);
+                        $sex = htmlspecialchars($_POST['user-sex']);
+                        $html = htmlspecialchars($_POST['skill-html']);
+                        $css = htmlspecialchars($_POST['skill-css']);
+                        $javascript = htmlspecialchars($_POST['skill-javascript']);
+                        $php = htmlspecialchars($_POST['skill-php']);
+                        $mysql = htmlspecialchars($_POST['skill-mysql']);
+                        $bootstrap = htmlspecialchars($_POST['skill-bootstrap']);
+                        $symfony = htmlspecialchars($_POST['skill-symfony']);
+                        $react = htmlspecialchars($_POST['skill-react']);
+                        $color = htmlspecialchars($_POST['color']);
+                        $dob = htmlspecialchars($_POST['birthday']);
+                        $table = array(          
+                            "first_name" => $prenom,
+                            "last_name"  =>  $nom,
+                            "age" => $age,
+                            "size" => $taille,
+                            "civility" => $sex,
+                            "html" => $html,
+                            "css" => $css,
+                            "javascript" => $javascript,
+                            "php" => $php,
+                            "mysql" => $mysql,
+                            "bootstrap" => $bootstrap,
+                            "symfony" => $symfony,
+                            "react" => $react,
+                            "color" => $color,
+                            "ddn" => $ddn,
+                        );
+
+                        $_SESSION["table"] = $table; 
+                        echo '<p class="alert-success text-center py-3"> Données sauvegardées !</p>';
+                    
+                    }
+                    
+                    
+                    elseif (isset($table)) {
                             if (isset($_GET["debugging"])) {
                                 echo "<h2 class='text-center'>Débogage</h2><br>";
                                 echo "<h3 class='fs-5'>===> Lecture du tableau à l'aide de la fonction print_r()</h3>";
                                 print "<pre>";
                                 print_r($table);
                                 print "</pre>";
-
+                            
                             } elseif (isset($_GET['concatenation'])) {
                                 echo "<h2 class='text-center'>Concaténation</h2><br>";
                                 
@@ -104,13 +146,13 @@ if(isset($_SESSION['table'])) $table = $_SESSION['table'];
                                 }
                                   
                             }else {
-                            echo '<a role="button" class=" btn btn-primary me-2" href="index.php?add">Ajouter des données</a>';
+                            //echo '<a role="button" class=" btn btn-primary me-2" href="index.php?add">Ajouter des données</a>';
                             echo '<a role="button" class=" btn btn-secondary" href="index.php?add_more">Ajouter plus de données</a>';
                         }
                             
                         } else {
                             echo '<a role="button" class=" btn btn-primary me-2" href="index.php?add">Ajouter des données</a>';
-                            echo '<a role="button" class=" btn btn-secondary" href="index.php?add_more">Ajouter plus de données</a>';
+                            //echo '<a role="button" class=" btn btn-secondary" href="index.php?add_more">Ajouter plus de données</a>';
                             
                         }
                         

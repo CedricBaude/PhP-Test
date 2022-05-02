@@ -98,12 +98,12 @@
       </div>
 
       <div>
-        <label for="color" class="form-label">Couleur préférée</label>
-        <input type="color" class="form-control form-control-color" id="color" value="#563d7c" title="Choose your color">
+        <label for="color" class="form-label mt-0 mb-0">Couleur préférée</label>
+        <input type="color" class="form-control form-control-color" id="color" name ="color" value="#563d7c" title="Choose your color">
     </div>
     <div>
-        <label class="form-label mt-2">Date de naissance</label>
-        <input type="date" class="form-control w-50" id="birthday">
+        <label class="form-label mt-0 mb-0">Date de naissance</label>
+        <input type="date" class="form-control w-50" id="birthday" name ="birthday" value="ddn">
     </div>
 
     </div>
