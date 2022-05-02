@@ -25,11 +25,11 @@ if(isset($_SESSION['table'])) $table = $_SESSION['table'];
                     }
 
                     elseif(isset($_POST['enregistrer'])) {
-                        $prenom = $_POST['user-prenom'];
-                        $nom = $_POST['user-nom'];
-                        $age = $_POST['user-age'];
-                        $taille = $_POST['user-taille'];
-                        $sex = $_POST['user-sex'];
+                        $prenom = htmlspecialchars($_POST['user-prenom']);
+                        $nom = htmlspecialchars($_POST['user-nom']);
+                        $age = htmlspecialchars($_POST['user-age']);
+                        $taille = htmlspecialchars($_POST['user-taille']);
+                        $sex = htmlspecialchars($_POST['user-sex']);
                         $table = array(          
                             "first_name" => $prenom,
                             "last_name"  =>  $nom,
