@@ -2,9 +2,9 @@
 
 <form action="index.php" method="POST">
   <div class="row">
-    <div class="coordonnees col-8 mt-3">
+    <div class="coordonnees card col-md-7 mx-auto my-1">
       <div class="form-group">
-          <div class="form-floating mb-3">
+          <div class="form-floating mb-3 mt-3">
             <input type="text" class="form-control" id="prenom" name="user-prenom" placeholder="Prénom" required>
             <label for="prenom"> Prénom </label>
           </div>
@@ -33,19 +33,29 @@
       </div>
 
       <br>
-      <div class="form-check form-check-inline">
-        <input class="form-check-input" type="radio" id="sexh" name="user-sex" value="woman" required>
-        <label class="form-check-label" for="inlineRadios2"> Femme </label>
-      </div>
+      <div class="w-100">
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" id="sexh" name="user-sex" value="woman" required>
+          <label class="form-check-label" for="inlineRadios2"> Femme </label>
+        </div>
 
-      <div class="form-check form-check-inline">
-      <input class="form-check-input" type="radio" id="sexf" name="user-sex" value="man" required>
-      <label class="form-check-label" for="inlineRadios1"> Homme </label>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" id="sexf" name="user-sex" value="man" required>
+          <label class="form-check-label" for="inlineRadios1"> Homme </label>
+        </div>
       </div>
+      <br>
     </div>
-    <div class="connaissances col-4 mt-3">
+    <div class="connaissances card col-md-4 mx-auto my-1">
+      <p class="mt-2">Connaissances</p>
 
     </div>
+
+    <div class="form-group ajout_photo card col-md-11 mx-auto my-1">
+      <label for="formFile" class="form-label">Joindre une photo (jpg ou png)</label>
+      <input class="form-control" type="file" id="formFile">
+    </div>
+    
   </div>
 
 <br>
