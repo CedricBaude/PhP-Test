@@ -101,13 +101,15 @@ if(isset($_SESSION['table'])) $table = $_SESSION['table'];
                                     echo '<p class="alert-success text-center py-3"> Données supprimées !</p>';
                                 }
                                   
+                            }else {
+                                echo '<a role="button" class=" btn btn-primary" href="index.php?add">Ajouter des données</a>';
                             }
                             
                         } else {
                             echo '<a role="button" class=" btn btn-primary" href="index.php?add">Ajouter des données</a>';
                         }
-                                  
-                    
+                        
+                        
                     
                 ?>
             
