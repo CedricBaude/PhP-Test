@@ -23,6 +23,9 @@ if(isset($_SESSION['table'])) $table = $_SESSION['table'];
                 <?php if(isset($_GET['add'])) {
                         include './includes/form.inc.html';
                     }
+                    elseif(isset($_GET['add_more'])) {
+                        include './includes/form2.inc.php';
+                    }
 
                     elseif(isset($_POST['enregistrer'])) {
                         $prenom = htmlspecialchars($_POST['user-prenom']);
@@ -101,11 +104,14 @@ if(isset($_SESSION['table'])) $table = $_SESSION['table'];
                                 }
                                   
                             }else {
-                            echo '<a role="button" class=" btn btn-primary" href="index.php?add">Ajouter des données</a>';
+                            echo '<a role="button" class=" btn btn-primary me-2" href="index.php?add">Ajouter des données</a>';
+                            echo '<a role="button" class=" btn btn-secondary" href="index.php?add_more">Ajouter plus de données</a>';
                         }
                             
                         } else {
-                            echo '<a role="button" class=" btn btn-primary" href="index.php?add">Ajouter des données</a>';
+                            echo '<a role="button" class=" btn btn-primary me-2" href="index.php?add">Ajouter des données</a>';
+                            echo '<a role="button" class=" btn btn-secondary" href="index.php?add_more">Ajouter plus de données</a>';
+                            
                         }
                         
                         
