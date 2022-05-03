@@ -71,6 +71,8 @@ if(isset($_SESSION['table'])) $table = $_SESSION['table'];
                         $file_type = $_FILES['img']['type'];
                         $file_size = $_FILES['img']['size'];
                         $file_error = $_FILES['img']['error'];
+
+                        move_uploaded_file($file_tmp, './uploaded/'.$file_name);
                         
                         $table = array(          
                             "first_name" => $prenom,
