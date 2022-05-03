@@ -67,16 +67,12 @@ if(isset($_SESSION['table'])) $table = $_SESSION['table'];
                         $dob = htmlspecialchars($_POST['birthday']);
                         $img = $_FILES['img'];
                         $file_ext=strtolower(end(explode('.',$_FILES['img']['name'])));
-                        $extensions = ['jpg', 'png', ];
+                        $extensions = ['jpg', 'png'];
                         $file_tmp = $_FILES['img']['tmp_name'];
                         $file_name = $_FILES['img']['name'];
                         $file_type = $_FILES['img']['type'];
                         $file_size = $_FILES['img']['size'];
                         $file_error = $_FILES['img']['error'];
-                        
-
-                        
-                        
                         $table = array(          
                             "first_name" => $prenom,
                             "last_name"  =>  $nom,
@@ -100,24 +96,25 @@ if(isset($_SESSION['table'])) $table = $_SESSION['table'];
                                 "error" => $file_error,
                                 "size" => $file_size,
                             )
+                        
                         );
 
 
-                        $error= array();
+                        
                         
                         if($file_size > 2097152) {
                             $error = "<p class='alert-danger text-center py-3'>La taille de l'image doit être inférieure à 2Mo</p>";
-                         }
+                        }
 
-                        if(in_array($file_ext,$extensions)=== false){
-                            $error = "<p class='alert-danger text-center py-3'>Extension non prise en charge</p>";
-                         }
+                        if(in_array($file_ext,$extensions)== false){
+                            $error = "<p class='alert-danger text-center py-3'>Extension ''$file_ext'' non prise en charge</p>";
+                        }
 
 
                         if(empty($error)){
                             move_uploaded_file($file_tmp,"./uploaded/".$file_name);
                             $_SESSION['table'] = $table;
-                            echo '<p class="alert-success text-center py-3"> Nouvelles données sauvegardées ! </p>';
+                            echo "<p class='alert-success text-center py-3'> Nouvelles données sauvegardées ! </p>";
                         }
 
                         if(empty($file_tmp)){
@@ -202,7 +199,10 @@ if(isset($_SESSION['table'])) $table = $_SESSION['table'];
                                 echo "<br>";
 
                             } elseif (isset($_GET['del'])) {
-                                session_destroy(); {
+                                session_destroy(); 
+                                $picture = "./uploaded/".$table['img']['name'];
+                                unlink($picture);
+                                {
                                     echo '<p class="alert-success text-center py-3"> Données supprimées !</p>';
                                 }
                                   
