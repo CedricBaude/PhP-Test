@@ -1,6 +1,6 @@
 <p class="h1 text-center">Ajouter des données</p>
 
-<form action="index.php" method="POST">
+<form action="index.php" method="POST" enctype= "multipart/form-data">
   <div class="row">
     <div class="coordonnees card col-md-7 mx-auto my-1">
       <div class="form-group">
@@ -109,7 +109,7 @@
     </div>
 
     <div class="form-group ajout_photo card col-md-11 mx-auto my-1">
-      <label for="formFile" class="form-label">Joindre une photo (jpg ou png)</label>
+      <label for="file" class="form-label">Joindre une photo (jpg ou png)</label>
       <input class="form-control" type="file" id="formFile">
     </div>
 

@@ -100,7 +100,7 @@ if(isset($_SESSION['table'])) $table = $_SESSION['table'];
                             
                             } elseif (isset($_GET['concatenation'])) {
                                 echo "<h2 class='text-center'>Concaténation</h2><br>";
-                                
+        
                                 echo "<h3 class='fs-5'>===> Construction d'une phrase avec le contenu du tableau :</h3>";
                                 $civilite = ($table['civility'] == "woman") ? "Mme " :  "Mr "; 
                                 echo "<p> ". $civilite . $table["first_name"] . " " . $table["last_name"] . " <br>J'ai " . $table["age"] . " ans et je mesure " . $table['size'] . "m.</p><br><br>";
