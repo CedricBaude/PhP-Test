@@ -66,13 +66,16 @@ if(isset($_SESSION['table'])) $table = $_SESSION['table'];
                         $color = htmlspecialchars($_POST['color']);
                         $dob = htmlspecialchars($_POST['birthday']);
                         $img = $_FILES['img'];
+                        $file_ext=strtolower(end(explode('.',$_FILES['img']['name'])));
+                        $extensions = ['jpg', 'png', ];
                         $file_tmp = $_FILES['img']['tmp_name'];
                         $file_name = $_FILES['img']['name'];
                         $file_type = $_FILES['img']['type'];
                         $file_size = $_FILES['img']['size'];
                         $file_error = $_FILES['img']['error'];
+                        
 
-                        move_uploaded_file($file_tmp, './uploaded/'.$file_name);
+                        
                         
                         $table = array(          
                             "first_name" => $prenom,
@@ -99,10 +102,34 @@ if(isset($_SESSION['table'])) $table = $_SESSION['table'];
                             )
                         );
 
-                        $_SESSION["table"] = $table;
-                        echo '<p class="alert-success text-center py-3"> Nouvelles données sauvegardées !</p>';
-                    
+
+                        $error= array();
+                        
+                        if($file_size > 2097152) {
+                            $error = "<p class='alert-danger text-center py-3'>La taille de l'image doit être inférieure à 2Mo</p>";
+                         }
+
+                        if(in_array($file_ext,$extensions)=== false){
+                            $error = "<p class='alert-danger text-center py-3'>Extension non prise en charge</p>";
+                         }
+
+
+                        if(empty($error)){
+                            move_uploaded_file($file_tmp,"./uploaded/".$file_name);
+                            $_SESSION['table'] = $table;
+                            echo '<p class="alert-success text-center py-3"> Nouvelles données sauvegardées ! </p>';
+                        }
+
+                        if(empty($file_tmp)){
+                            echo "<p class='alert-danger text-center py-3'>Aucun fichier n'a été téléchargé !</p>";
+                        }
+                          
+                        else{
+                            print_r($error);
+                        }
+
                     }
+                    
                     
                     
                     elseif (isset($table)) {
@@ -142,9 +169,15 @@ if(isset($_SESSION['table'])) $table = $_SESSION['table'];
                                 $table = array_filter($table);
                                 $i = 0;
                                     foreach ($table as $x => $value) {
-                                            echo '<div>à la ligne n°' . $i . ' correspond la clé "' . $x . '" et contient "' . $value . '"</div>';
-                                            $i++;
+                                        if ($x == 'img') {
+                                        unset($value);
+                                        echo '<div>à la ligne n°' . $i . ' correspond la clé "' . $x . '" et contient</div>';
+                                        echo "<img class='w-100' src='./uploaded/".$table['img']['name']."'>"; 
+                                        } else {
+                                        echo '<div>à la ligne n°' . $i . ' correspond la clé "' . $x . '" et contient "' . $value . '"</div>';
+                                        $i++;
                                         }
+                                    }
                                     echo "<br>";
 
                             } elseif (isset($_GET['function'])) {
@@ -154,9 +187,15 @@ if(isset($_SESSION['table'])) $table = $_SESSION['table'];
                                         $i = 0;
                                         $table = $_SESSION['table'];
                                         $table = array_filter($table);
-                                        foreach ($table as $property => $propertyValue) {
-                                            echo 'à la ligne n°' . $i . ' correspond la clé "' . $property . '" et contient "' . $propertyValue . '"<br>';
+                                        foreach ($table as $x => $value) {
+                                            if ($x == 'img') {
+                                            unset($value);
+                                            echo '<div>à la ligne n°' . $i . ' correspond la clé "' . $x . '" et contient</div>';
+                                            echo "<img class='w-100' src='./uploaded/".$table['img']['name']."'>"; 
+                                            } else {
+                                            echo '<div>à la ligne n°' . $i . ' correspond la clé "' . $x . '" et contient "' . $value . '"</div>';
                                             $i++;
+                                            }
                                         }
                                     }
                                 readTable ();
