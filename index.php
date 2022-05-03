@@ -139,6 +139,7 @@ if(isset($_SESSION['table'])) $table = $_SESSION['table'];
                                 echo "<h2 class='text-center'>Boucle</h2><br>";
                                 echo "<h3 class='fs-5'>===> Lecture du tableau à l'aide d'une boucle foreach</h3><br>";
                                 $table = $_SESSION['table'];
+                                $table = array_filter($table);
                                 $i = 0;
                                     foreach ($table as $x => $value) {
                                             echo '<div>à la ligne n°' . $i . ' correspond la clé "' . $x . '" et contient "' . $value . '"</div>';
@@ -152,6 +153,7 @@ if(isset($_SESSION['table'])) $table = $_SESSION['table'];
                                     function readTable(){
                                         $i = 0;
                                         $table = $_SESSION['table'];
+                                        $table = array_filter($table);
                                         foreach ($table as $property => $propertyValue) {
                                             echo 'à la ligne n°' . $i . ' correspond la clé "' . $property . '" et contient "' . $propertyValue . '"<br>';
                                             $i++;
