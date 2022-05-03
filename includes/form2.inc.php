@@ -109,8 +109,8 @@
     </div>
 
     <div class="form-group ajout_photo card col-md-11 mx-auto my-1">
-      <label for="file" class="form-label">Joindre une photo (jpg ou png)</label>
-      <input class="form-control" type="file" id="formFile">
+      <label for="img" class="form-label">Joindre une photo (jpg ou png)</label>
+      <input class="form-control" type="file" id="img" name="img">
     </div>
 
 

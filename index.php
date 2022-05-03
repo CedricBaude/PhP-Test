@@ -65,6 +65,13 @@ if(isset($_SESSION['table'])) $table = $_SESSION['table'];
                         $react = htmlspecialchars($_POST['react']);
                         $color = htmlspecialchars($_POST['color']);
                         $dob = htmlspecialchars($_POST['birthday']);
+                        $img = $_FILES['img'];
+                        $file_tmp = $_FILES['img']['tmp_name'];
+                        $file_name = $_FILES['img']['name'];
+                        $file_type = $_FILES['img']['type'];
+                        $file_size = $_FILES['img']['size'];
+                        $file_error = $_FILES['img']['error'];
+                        
                         $table = array(          
                             "first_name" => $prenom,
                             "last_name"  =>  $nom,
@@ -80,7 +87,14 @@ if(isset($_SESSION['table'])) $table = $_SESSION['table'];
                             "symfony" => $symfony,
                             "react" => $react,
                             "color" => $color,
-                            "ddn" => $ddn,
+                            "dob" => $dob,
+                            "img" => array(
+                                "name" => $file_name,
+                                "type" => $file_type,
+                                "tmp_name" => $file_tmp,
+                                "error" => $file_error,
+                                "size" => $file_size,
+                            )
                         );
 
                         $_SESSION["table"] = $table;
