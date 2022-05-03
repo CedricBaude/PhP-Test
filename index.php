@@ -45,12 +45,9 @@ if(isset($_SESSION['table'])) $table = $_SESSION['table'];
 
                         $_SESSION["table"] = $table; 
                         echo '<p class="alert-success text-center py-3"> Données sauvegardées !</p>';
-                        print_r($table);
                     
                     }
-                    
-                    
-                   
+
                     
                     elseif(isset($_POST['enregistrer2'])) {
                         $prenom = htmlspecialchars($_POST['user-prenom']);
@@ -96,8 +93,9 @@ if(isset($_SESSION['table'])) $table = $_SESSION['table'];
                             if (isset($_GET["debugging"])) {
                                 echo "<h2 class='text-center'>Débogage</h2><br>";
                                 echo "<h3 class='fs-5'>===> Lecture du tableau à l'aide de la fonction print_r()</h3>";
+                                //$table = array_filter($table);
                                 print "<pre>";
-                                print_r($table);
+                                print_r(array_filter($table));
                                 print "</pre>";
                             
                             } elseif (isset($_GET['concatenation'])) {
