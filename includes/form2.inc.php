@@ -49,49 +49,49 @@
     <div class="connaissances card col-md-4 mx-auto my-1">
       <p class="mt-2">Connaissances</p>
       <div class="form-check">
-        <input class="form-check-input" type="checkbox"  id="htlm" name="skill-html" value="HTML5" placeholder="html">
+        <input class="form-check-input" type="checkbox"  id="htlm" name="html" value="HTML5" placeholder="html">
         <label class="form-check-label" for="flexCheckDefault">
           HTML
         </label>
       </div>
       <div class="form-check">
-        <input class="form-check-input" type="checkbox" id="css" name="skill-css" value="CSS3" placeholder="css">
+        <input class="form-check-input" type="checkbox" id="css" name="css" value="CSS3" placeholder="css">
         <label class="form-check-label" for="flexCheckDefault">
           CSS
         </label>
       </div>
       <div class="form-check">
-        <input class="form-check-input" type="checkbox" id="javascript" name="skill-javascript" value="JavaScript" placeholder="javascript">
+        <input class="form-check-input" type="checkbox" id="javascript" name="javascript" value="JavaScript" placeholder="javascript">
         <label class="form-check-label" for="flexCheckDefault">
           JavaScript
         </label>
       </div>
       <div class="form-check">
-        <input class="form-check-input" type="checkbox" id="php" name="skill-php" value="PHP" placeholder="php">
+        <input class="form-check-input" type="checkbox" id="php" name="php" value="PHP" placeholder="php">
         <label class="form-check-label" for="flexCheckDefault">
           PHP
         </label>
       </div>
       <div class="form-check">
-        <input class="form-check-input" type="checkbox" id="mysql" name="skill-mysl" value="MySQL" placeholder="mysql">
+        <input class="form-check-input" type="checkbox" id="mysql" name="mysl" value="MySQL" placeholder="mysql">
         <label class="form-check-label" for="flexCheckDefault">
           MySQL
         </label>
       </div>
       <div class="form-check">
-        <input class="form-check-input" type="checkbox" id="bootstrap" name="skill-bootstrap" value="BootStrap" placeholder="bootstrap">
+        <input class="form-check-input" type="checkbox" id="bootstrap" name="bootstrap" value="BootStrap" placeholder="bootstrap">
         <label class="form-check-label" for="flexCheckDefault">
           BootStrap
         </label>
       </div>
       <div class="form-check">
-        <input class="form-check-input" type="checkbox" id="symphony" name="skill-symphony" value="Symphony" placeholder="symphony">
+        <input class="form-check-input" type="checkbox" id="symphony" name="symphony" value="Symphony" placeholder="symphony">
         <label class="form-check-label" for="flexCheckDefault">
           Symphony
         </label>
       </div>
       <div class="form-check">
-        <input class="form-check-input" type="checkbox" id="react" name="skill-react" value="React" placeholder="react">
+        <input class="form-check-input" type="checkbox" id="react" name="react" value="React" placeholder="react">
         <label class="form-check-label" for="flexCheckDefault">
           Réact
         </label>
@@ -120,5 +120,5 @@
 <br>
 
 
-  <button type="submit" class="btn btn-primary float-end" name="enregistrer">Enregistrer les données</button>
+  <button type="submit" class="btn btn-primary float-end" name="enregistrer2">Enregistrer les données</button>
   </form>

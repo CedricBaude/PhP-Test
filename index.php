@@ -20,11 +20,14 @@ if(isset($_SESSION['table'])) $table = $_SESSION['table'];
             </nav>
 
             <section class="col-9 mt-3">
-                <?php if(isset($_GET['add'])) {
+                <?php if(isset($_GET['add'])) 
                         include './includes/form.inc.html';
-                    }
                     
-
+                    
+                    elseif(isset($_GET['add_more'])) 
+                        include './includes/form2.inc.php';
+                    
+                    
                     elseif(isset($_POST['enregistrer'])) {
                         $prenom = htmlspecialchars($_POST['user-prenom']);
                         $nom = htmlspecialchars($_POST['user-nom']);
@@ -42,24 +45,27 @@ if(isset($_SESSION['table'])) $table = $_SESSION['table'];
 
                         $_SESSION["table"] = $table; 
                         echo '<p class="alert-success text-center py-3"> Données sauvegardées !</p>';
+                        print_r($table);
                     
-                    } elseif(isset($_GET['add_more'])) {
-                        include './includes/form2.inc.php';
                     }
+                    
+                    
+                   
+                    
                     elseif(isset($_POST['enregistrer2'])) {
                         $prenom = htmlspecialchars($_POST['user-prenom']);
                         $nom = htmlspecialchars($_POST['user-nom']);
                         $age = htmlspecialchars($_POST['user-age']);
                         $taille = htmlspecialchars($_POST['user-taille']);
                         $sex = htmlspecialchars($_POST['user-sex']);
-                        $html = htmlspecialchars($_POST['skill-html']);
-                        $css = htmlspecialchars($_POST['skill-css']);
-                        $javascript = htmlspecialchars($_POST['skill-javascript']);
-                        $php = htmlspecialchars($_POST['skill-php']);
-                        $mysql = htmlspecialchars($_POST['skill-mysql']);
-                        $bootstrap = htmlspecialchars($_POST['skill-bootstrap']);
-                        $symfony = htmlspecialchars($_POST['skill-symfony']);
-                        $react = htmlspecialchars($_POST['skill-react']);
+                        $html = htmlspecialchars($_POST['html']);
+                        $css = htmlspecialchars($_POST['css']);
+                        $javascript = htmlspecialchars($_POST['javascript']);
+                        $php = htmlspecialchars($_POST['php']);
+                        $mysql = htmlspecialchars($_POST['mysql']);
+                        $bootstrap = htmlspecialchars($_POST['bootstrap']);
+                        $symfony = htmlspecialchars($_POST['symfony']);
+                        $react = htmlspecialchars($_POST['react']);
                         $color = htmlspecialchars($_POST['color']);
                         $dob = htmlspecialchars($_POST['birthday']);
                         $table = array(          
@@ -80,8 +86,8 @@ if(isset($_SESSION['table'])) $table = $_SESSION['table'];
                             "ddn" => $ddn,
                         );
 
-                        $_SESSION["table"] = $table; 
-                        echo '<p class="alert-success text-center py-3"> Données sauvegardées !</p>';
+                        $_SESSION["table"] = $table;
+                        echo '<p class="alert-success text-center py-3"> Nouvelles données sauvegardées !</p>';
                     
                     }
                     
