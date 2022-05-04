@@ -1,4 +1,5 @@
 <?php ?>
+
 <p class="h1 text-center">Ajouter des données</p>
 
 <form action="index.php" method="POST" enctype= "multipart/form-data">
