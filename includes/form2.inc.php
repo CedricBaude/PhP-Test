@@ -33,6 +33,7 @@
       </div>
 
       <br>
+
       <div class="w-100">
         <div class="form-check form-check-inline">
           <input class="form-check-input" type="radio" id="sexh" name="user-sex" value="woman" required>
@@ -44,10 +45,12 @@
           <label class="form-check-label" for="inlineRadios1"> Homme </label>
         </div>
       </div>
+
       <br>
+
     </div>
     <div class="connaissances card col-md-4 mx-auto my-1">
-      <p class="mt-2">Connaissances</p>
+      <p class="mt-2 mb-1">Connaissances</p>
       <div class="form-check">
         <input class="form-check-input" type="checkbox"  id="htlm" name="html" value="HTML5" placeholder="html">
         <label class="form-check-label" for="flexCheckDefault">
@@ -101,24 +104,18 @@
         <label for="color" class="form-label mt-0 mb-0">Couleur préférée</label>
         <input type="color" class="form-control form-control-color" id="color" name ="color" value="#563d7c" title="Choose your color">
     </div>
+
     <div>
         <label class="form-label mt-0 mb-0">Date de naissance</label>
-        <input type="date" class="form-control w-50" id="birthday" name ="birthday" value="ddn">
+        <input type="date" class="form-control w-50 mb-2" id="birthday" name ="birthday" value="ddn">
     </div>
-
+    
     </div>
-
     <div class="form-group ajout_photo card col-md-11 mx-auto my-1">
       <label for="img" class="form-label">Joindre une photo (jpg ou png)</label>
-      <input class="form-control" type="file" id="img" name="img">
+      <input class="form-control mb-2" type="file" id="img" name="img">
     </div>
-
-
-    
   </div>
-
-<br>
-
-
+  <br>
   <button type="submit" class="btn btn-primary float-end" name="enregistrer2">Enregistrer les données</button>
   </form>

@@ -40,14 +40,11 @@ if(isset($_SESSION['table'])) $table = $_SESSION['table'];
                             "age" => $age,
                             "size" => $taille,
                             "civility" => $sex,
-                            
-                        );
+                            );
 
                         $_SESSION["table"] = $table; 
                         echo '<p class="alert-success text-center py-3"> Données sauvegardées !</p>';
-                    
                     }
-
                     
                     elseif(isset($_POST['enregistrer2'])) {
                         $prenom = htmlspecialchars($_POST['user-prenom']);
@@ -96,39 +93,31 @@ if(isset($_SESSION['table'])) $table = $_SESSION['table'];
                                 "error" => $file_error,
                                 "size" => $file_size,
                             )
-                        
                         );
 
-
-                        
-                        
                         if($file_size > 2097152) {
-                            $error = "<p class='alert-danger text-center py-3'>La taille de l'image doit être inférieure à 2Mo</p>";
+                            $error = "<p class='alert-danger text-center py-3'>La taille de l'image doit être inférieure à 2Mo !</p>";
                         }
 
                         if(in_array($file_ext,$extensions)== false){
-                            $error = "<p class='alert-danger text-center py-3'>Extension ''$file_ext'' non prise en charge</p>";
+                            $error = "<p class='alert-danger text-center py-3'>Extension ''$file_ext'' non prise en charge !</p>";
                         }
 
+                        if(empty($file_tmp)){
+                            echo "<p class='alert-danger text-center py-3'>Aucun fichier n'a été téléchargé !</p>";
+                        }
 
                         if(empty($error)){
                             move_uploaded_file($file_tmp,"./uploaded/".$file_name);
                             $_SESSION['table'] = $table;
                             echo "<p class='alert-success text-center py-3'> Nouvelles données sauvegardées ! </p>";
                         }
-
-                        if(empty($file_tmp)){
-                            echo "<p class='alert-danger text-center py-3'>Aucun fichier n'a été téléchargé !</p>";
-                        }
                           
                         else{
                             print_r($error);
                         }
-
                     }
-                    
-                    
-                    
+
                     elseif (isset($table)) {
                             if (isset($_GET["debugging"])) {
                                 echo "<h2 class='text-center'>Débogage</h2><br>";
@@ -137,8 +126,9 @@ if(isset($_SESSION['table'])) $table = $_SESSION['table'];
                                 print "<pre>";
                                 print_r($table);
                                 print "</pre>";
-                            
-                            } elseif (isset($_GET['concatenation'])) {
+                            } 
+
+                            elseif (isset($_GET['concatenation'])) {
                                 echo "<h2 class='text-center'>Concaténation</h2><br>";
         
                                 echo "<h3 class='fs-5'>===> Construction d'une phrase avec le contenu du tableau :</h3>";
@@ -158,8 +148,9 @@ if(isset($_SESSION['table'])) $table = $_SESSION['table'];
                                 $table['last_name'] = strtoupper($table['last_name']);
                                 $civilite = ($table['civility'] == "woman") ? "Mme " :  "Mr ";                               
                                 echo "<p> ". $civilite . $table["first_name"] . " " . $table["last_name"] . " <br>J'ai " . $table["age"] . " ans et je mesure " . $table['size'] . "m.</p><br><br>";
+                            } 
                             
-                            } elseif (isset($_GET['loop'])) {
+                            elseif (isset($_GET['loop'])) {
                                 echo "<h2 class='text-center'>Boucle</h2><br>";
                                 echo "<h3 class='fs-5'>===> Lecture du tableau à l'aide d'une boucle foreach</h3><br>";
                                 $table = $_SESSION['table'];
@@ -176,8 +167,9 @@ if(isset($_SESSION['table'])) $table = $_SESSION['table'];
                                         }
                                     }
                                     echo "<br>";
-
-                            } elseif (isset($_GET['function'])) {
+                            } 
+                            
+                            elseif (isset($_GET['function'])) {
                                 echo "<h2 class='text-center'>Fonction</h2><br>";
                                 echo "<h3 class='fs-5'> ===> J'utilise ma function readTable() </h3>";
                                     function readTable(){
@@ -197,31 +189,27 @@ if(isset($_SESSION['table'])) $table = $_SESSION['table'];
                                     }
                                 readTable ();
                                 echo "<br>";
-
-                            } elseif (isset($_GET['del'])) {
+                            } 
+                            
+                            elseif (isset($_GET['del'])) {
                                 $picture = "./uploaded/".$table['img']['name'];
                                 if (isset($picture)) {
                                     @unlink($picture);
                                 } 
-                                
                                 unset ($_SESSION['table']);
                                 session_destroy(); 
-                                echo '<p class="alert-success text-center py-3"> Données supprimées !</p>';
-
-                                    
-                            }else {
+                                echo '<p class="alert-success text-center py-3"> Données supprimées !</p>';        
+                            }
+                            
+                            else {
                             //echo '<a role="button" class=" btn btn-primary me-2" href="index.php?add">Ajouter des données</a>';
                             echo '<a role="button" class=" btn btn-secondary" href="index.php?add_more">Ajouter plus de données</a>';
                         }
                             
                         } else {
                             echo '<a role="button" class=" btn btn-primary me-2" href="index.php?add">Ajouter des données</a>';
-                            //echo '<a role="button" class=" btn btn-secondary" href="index.php?add_more">Ajouter plus de données</a>';
-                            
-                        }
-                        
-                        
-                    
+                            //echo '<a role="button" class=" btn btn-secondary" href="index.php?add_more">Ajouter plus de données</a>';   
+                        }    
                 ?>
             
             </section>
