@@ -199,13 +199,16 @@ if(isset($_SESSION['table'])) $table = $_SESSION['table'];
                                 echo "<br>";
 
                             } elseif (isset($_GET['del'])) {
-                                session_destroy(); 
                                 $picture = "./uploaded/".$table['img']['name'];
-                                unlink($picture);
-                                {
-                                    echo '<p class="alert-success text-center py-3"> Données supprimées !</p>';
-                                }
-                                  
+                                if (isset($picture)) {
+                                    @unlink($picture);
+                                } 
+                                
+                                unset ($_SESSION['table']);
+                                session_destroy(); 
+                                echo '<p class="alert-success text-center py-3"> Données supprimées !</p>';
+
+                                    
                             }else {
                             //echo '<a role="button" class=" btn btn-primary me-2" href="index.php?add">Ajouter des données</a>';
                             echo '<a role="button" class=" btn btn-secondary" href="index.php?add_more">Ajouter plus de données</a>';
