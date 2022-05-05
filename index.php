@@ -95,27 +95,32 @@ if(isset($_SESSION['table'])) $table = $_SESSION['table'];
                             )
                         );
 
-                        if($file_size > 2097152) {
-                            $error = "<p class='alert-danger text-center py-3'>La taille de l'image doit être inférieure à 2Mo !</p>";
+                        if (isset($_FILES) && $_FILES['img']['error'] == 0) {
+                            if($file_size < 2097152){
+                                if(in_array($file_ext,$extensions)== true){
+                                    move_uploaded_file($file_tmp,"./uploaded/".$file_name);
+                                    $_SESSION['table'] = $table;
+                                    echo "<p class='alert-success text-center py-3'> Nouvelles données sauvegardées ! </p>";
+                                }
+                                else {
+                                    echo "<p class='alert-danger text-center py-3'> Extention ''$file_ext'' non prise en charge! </p> ";
+                                }
+                            }
+                            else {
+                                echo "<p class='alert-danger text-center py-3'> La taille de l'image doit être inférieure à 2Mo !</p>";
+                            }
                         }
+                        else {
 
-                        if(in_array($file_ext,$extensions)== false){
-                            $error = "<p class='alert-danger text-center py-3'>Extension ''$file_ext'' non prise en charge !</p>";
-                        }
-
-                        if(empty($file_tmp)){
-                            echo "<p class='alert-danger text-center py-3'>Aucun fichier n'a été téléchargé !</p>";
-                        }
-
-                        if(empty($error)){
-                            move_uploaded_file($file_tmp,"./uploaded/".$file_name);
-                            $_SESSION['table'] = $table;
-                            echo "<p class='alert-success text-center py-3'> Nouvelles données sauvegardées ! </p>";
-                        }
-                          
-                        else{
-                            print_r($error);
-                        }
+                            if($_FILES['img']['error'] == 4)  {
+                                $message= 'Aucun fichier n\'a été téléchargé !';
+                                echo "<p class='alert-danger text-center py-3'> $message !</p>";
+                            }
+                            else{
+                                $message= 'error: ' .$_FILES['img']['error'];
+                                echo "<p class='alert-danger text-center py-3'> $message !</p>";
+                            }
+                        }  
                     }
 
                     elseif (isset($table)) {
